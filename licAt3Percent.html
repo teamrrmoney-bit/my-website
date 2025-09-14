@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRmoney - LIC Policy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #004aad;
+      color: white;
+      padding: 15px;
+    }
+    header img {
+      height: 60px;
+    }
+    .flash-text {
+      background: yellow;
+      color: red;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 10px;
+      animation: flash 1s infinite;
+    }
+    @keyframes flash {
+      0% {opacity: 1;}
+      50% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+    .content {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+      margin-top: 20px;
+    }
+    .form-container {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .form-container input, .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .btn {
+      background: #28a745;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="your-logo.png" alt="RRmoney Logo"> <!-- यहां अपना लोगो लगाएँ -->
+    <h1>RRmoney</h1>
+  </header>
+
+  <div class="flash-text">
+    LIC पॉलिसी प्रीमियम पर 3% से ज्यादा सस्ता!
+  </div>
+
+  <div class="content">
+    <h2>LIC पॉलिसी क्यों चुनें?</h2>
+    <p>
+      यहाँ आप अपना आर्टिकल लिख सकते हैं...  
+      (LIC की गारंटी, फायदे और अन्य जानकारी डालें)
+    </p>
+
+    <h3>पॉलिसी लेने के लिए विवरण भरें</h3>
+    <div class="form-container">
+      <form id="policyForm">
+        <input type="text" id="name" placeholder="आपका नाम" required>
+        <input type="email" id="email" placeholder="आपका ईमेल" required>
+        <input type="text" id="mobile" placeholder="आपका मोबाइल नंबर" required>
+        <input type="text" id="income" placeholder="आपकी इनकम" required>
+        <textarea id="purpose" placeholder="बीमा लेने का उद्देश्य" required></textarea>
+        <button type="submit" class="btn">पॉलिसी लेने के लिए क्लिक करें</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("policyForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let mobile = document.getElementById("mobile").value;
+      let income = document.getElementById("income").value;
+      let purpose = document.getElementById("purpose").value;
+
+      let msg = `नमस्ते, मैं पॉलिसी लेने में रुचि रखता हूँ:%0A
+      नाम: ${name}%0A
+      ईमेल: ${email}%0A
+      मोबाइल: ${mobile}%0A
+      इनकम: ${income}%0A
+      उद्देश्य: ${purpose}`;
+
+      let url = `https://wa.me/918447983853?text=${msg}`;
+      window.open(url, "_blank");
+    });
+  </script>
+</body>
+</html>
