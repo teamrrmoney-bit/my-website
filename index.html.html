@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRmoney - LIC Policy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(90deg, #004aad, #1e3c72);
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header img {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .flash-text {
+      background: #ffeb3b;
+      color: #d32f2f;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 12px;
+      margin: 15px 20px;
+      border-radius: 10px;
+      animation: flash 1.2s infinite;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      line-height: 1.4;
+    }
+
+    @keyframes flash {
+      0%, 100% {opacity: 1;}
+      50% {opacity: 0.3;}
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .content:hover { transform: translateY(-5px); }
+
+    .content h2 {
+      color: #004aad;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .content p {
+      line-height: 1.7;
+      font-size: 16px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    /* Policy Cards */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      flex: 1 1 calc(33% - 20px);
+      background: linear-gradient(to right, #ffffff, #e3f2fd);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    .card i {
+      font-size: 40px;
+      color: #004aad;
+      margin-bottom: 15px;
+    }
+
+    .card h4 {
+      margin-bottom: 10px;
+      color: #004aad;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Sovereign Guarantee Section */
+    .sovereign {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 40px;
+      background: #fff9c4;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+    }
+
+    .sovereign img {
+      max-width: 150px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .sovereign-text {
+      flex: 1;
+    }
+
+    .sovereign-text h3 {
+      color: #f57f17;
+      margin-bottom: 10px;
+    }
+
+    .sovereign-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Form */
+    .form-container { margin-top: 20px; text-align: left; }
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 14px 15px;
+      margin: 10px 0;
+      border: 1.5px solid #ccc;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    .form-container input:focus,
+    .form-container textarea:focus {
+      border-color: #004aad;
+      box-shadow: 0 0 12px rgba(0,74,173,0.2);
+      outline: none;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #28a745, #218838);
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #218838, #19692c);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 12px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .cards { flex-direction: column; }
+      .card { flex: 1 1 100%; }
+      .sovereign { flex-direction: column; text-align: center; }
+      .sovereign img { margin-bottom: 15px; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+   <header>
+    <!-- RRmoney logo -->
+    <img src="file:///D:/rrmoney/images/rrmoney-logo.png" alt="RRmoney Logo" style="height:60px;">
+
+
+  </header>
+
+  <div class="flash-text">
+    RRmoney पर LIC की सभी पोलिसीज 3% से 5% कम पर लेने के लिए कृपया नीचे दिये गये फार्म को भरकर भेजें
+  </div>
+
+  <div class="content">
+    <h2>LIC पॉलिसी के फायदे</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-shield-alt"></i>
+        <h4>सुरक्षित भविष्य</h4>
+        <p>आपके और आपके परिवार के लिए सुनिश्चित सुरक्षा और वित्तीय स्थिरता।</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-hand-holding-usd"></i>
+        <h4>निश्चित रिटर्न</h4>
+        <p>आपकी जमा राशि पर गारंटीड रिटर्न और लंबी अवधि के लाभ।</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-users"></i>
+        <h4>परिवार सुरक्षा</h4>
+        <p>आपके परिवार को अचानक आपात स्थिति में आर्थिक सुरक्षा।</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-file-alt"></i>
+        <h4>सरकारी समर्थित</h4>
+        <p>सरकार द्वारा समर्थित LIC पॉलिसी विश्वसनीय और भरोसेमंद।</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-percent"></i>
+        <h4>सस्ता प्रीमियम</h4>
+        <p>3% से 5% तक कम प्रीमियम में पॉलिसी उपलब्ध (केवल RRmoney पर)</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-chart-line"></i>
+        <h4>लंबी अवधि लाभ</h4>
+        <p>समय के साथ निवेश और सुरक्षा के बेहतर फायदे।</p>
+      </div>
+    </div>
+
+    <!-- Sovereign Guarantee Section -->
+    <div class="sovereign">
+      <img src="images/sovereign-logo.png" alt="Sovereign Guarantee">
+
+      <div class="sovereign-text">
+        <h3>सोवरेन गारंटी</h3>
+        <p>LIC पॉलिसी को भारत सरकार की सोवरेन गारंटी प्राप्त है। इसका मतलब है कि आपकी जमा राशि और लाभ सुरक्षित हैं और सरकार द्वारा समर्थित हैं। यह आपके निवेश को सबसे सुरक्षित विकल्प बनाता है।</p>
+      </div>
+    </div>
+
+    <h3>पॉलिसी लेने के लिए विवरण भरें</h3>
+    <div class="form-container">
+      <form id="policyForm">
+        <input type="text" id="name" placeholder="आपका नाम" required>
+        <input type="email" id="email" placeholder="आपका ईमेल" required>
+        <input type="text" id="mobile" placeholder="आपका मोबाइल नंबर" required>
+        <input type="text" id="income" placeholder="आपकी इनकम" required>
+        <textarea id="purpose" placeholder="बीमा लेने का उद्देश्य" required></textarea>
+        <button type="submit" class="btn">पॉलिसी लेने के लिए क्लिक करें</button>
+      </form>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+      RRmoney, LIC द्वारा निर्धारित किये गये प्रीमियम व इसके भुगतान की विधि में कोई बदलाव नहीं करता है। पॉलिसी धारक का पैसा सीधे LIC के पास जाता है जिसकी सूचना पॉलिसी धारक को रहती है। RRmoney, LIC द्वारा प्रदत्त तरीके से ही पॉलिसी धारक को 3% से 5% तक का लाभ दिलाता है। इसके लिए हमारे पार्टनर्स (जो LIC के authorised agents हैं) के द्वारा कुछ अतिरिक्त प्रक्रियाएं करनी होती हैं जिसके बाद पॉलिसी धारक को ये सुविधा मिल जाती है। हमारा ध्येय है कि पॉलिसी धारक को अधिक लाभ मिले और एजेंट का भी नुकसान न हो।
+    </div>
+  </div>
+
+  <footer>
+    © 2025 RRMoney. सभी अधिकार सुरक्षित।
+  </footer>
+
+  <script>
+    document.getElementById("policyForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let mobile = document.getElementById("mobile").value;
+      let income = document.getElementById("income").value;
+      let purpose = document.getElementById("purpose").value;
+
+      let msg = `नमस्ते, मैं पॉलिसी लेने में रुचि रखता हूँ:%0A
+नाम: ${name}%0A
+ईमेल: ${email}%0A
+मोबाइल: ${mobile}%0A
+इनकम: ${income}%0A
+उद्देश्य: ${purpose}`;
+
+      let url = `https://wa.me/918447983853?text=${msg}`;
+      window.open(url, "_blank");
+    });
+  </script>
+</body>
+</html>
