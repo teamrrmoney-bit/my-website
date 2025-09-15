@@ -184,6 +184,7 @@
   </style>
 </head>
 <body>
+  <body>
   <header>
     <img src="rrmoney-logo.png" alt="RRmoney Logo" style="height:60px;">
   </header>
@@ -196,45 +197,72 @@
     <h2>LIC पॉलिसी के फायदे</h2>
 
     <div class="cards">
-      <!-- वही कार्ड्स -->
-      …
+      <div class="card">
+        <i class="fas fa-shield-alt"></i>
+        <h4>सुरक्षित भविष्य</h4>
+        <p>आपके और आपके परिवार के लिए सुनिश्चित सुरक्षा और वित्तीय स्थिरता।</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-hand-holding-usd"></i>
+        <h4>निश्चित रिटर्न</h4>
+        <p>आपकी जमा राशि पर गारंटीड रिटर्न और लंबी अवधि के लाभ।</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-users"></i>
+        <h4>परिवार सुरक्षा</h4>
+        <p>आपके परिवार को अचानक आपात स्थिति में आर्थिक सुरक्षा।</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-file-alt"></i>
+        <h4>सरकारी समर्थित</h4>
+        <p>सरकार द्वारा समर्थित LIC पॉलिसी विश्वसनीय और भरोसेमंद।</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-percent"></i>
+        <h4>सस्ता प्रीमियम</h4>
+        <p>3% से 5% तक कम प्रीमियम में पॉलिसी उपलब्ध (केवल RRmoney पर)</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-chart-line"></i>
+        <h4>लंबी अवधि लाभ</h4>
+        <p>समय के साथ निवेश और सुरक्षा के बेहतर फायदे।</p>
+      </div>
     </div>
 
     <div class="sovereign">
       <img src="sovereign-logo.png" alt="Sovereign Guarantee">
       <div class="sovereign-text">
         <h3>सोवरेन गारंटी</h3>
-        <p>LIC पॉलिसी को भारत सरकार की सोवरेन गारंटी प्राप्त है…</p>
+        <p>LIC पॉलिसी को भारत सरकार की सोवरेन गारंटी प्राप्त है। …</p>
       </div>
     </div>
 
     <!-- नया फॉर्म -->
-    <h3>Fill your details to get more info</h3>
+    <h3>पॉलिसी लेने के लिए विवरण भरें</h3>
     <div class="form-container">
       <form id="policyForm">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <input type="text" id="mobile" placeholder="Your Mobile" required>
-        <input type="text" id="income" placeholder="Your Income" required>
-        <textarea id="purpose" placeholder="Purpose of Insurance" required></textarea>
-        <input type="text" id="refName" placeholder="Friend's Name (Optional)">
-        <input type="text" id="refMobile" placeholder="Friend's Mobile (Optional)">
-        <button type="submit" class="btn">Submit</button>
+        <input type="text" id="name" placeholder="आपका नाम" required>
+        <input type="email" id="email" placeholder="आपका ईमेल" required>
+        <input type="text" id="mobile" placeholder="आपका मोबाइल नंबर" required>
+        <input type="text" id="income" placeholder="आपकी इनकम" required>
+        <textarea id="purpose" placeholder="बीमा लेने का उद्देश्य" required></textarea>
+
+        <!-- वैकल्पिक रेफ़रल -->
+        <input type="text" id="refName" placeholder="मित्र का नाम (Optional)">
+        <input type="text" id="refMobile" placeholder="मित्र का मोबाइल (Optional)">
+
+        <button type="submit" class="btn">पॉलिसी लेने के लिए क्लिक करें</button>
         <button type="button" id="recommendBtn" class="btn" style="margin-top:10px;background:linear-gradient(90deg,#007bff,#0056b3)">Recommend & Earn</button>
       </form>
     </div>
-
-    <div class="disclaimer">
-      RRmoney, LIC द्वारा निर्धारित किये गये प्रीमियम व इसके भुगतान की विधि में कोई बदलाव नहीं करता है…
-    </div>
   </div>
 
-  <footer>
-    © 2025 RRMoney. सभी अधिकार सुरक्षित।
-  </footer>
+  <footer>© 2025 RRMoney. सभी अधिकार सुरक्षित।</footer>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwZ7ma5ExXXrThXD0jSXBB5GxVMy_cNVqTyFRCgr2xFI1FZU0zxqz1nQ7eUNu_HlCpI/exec"; // यहाँ अपना Apps Script URL डालें
+    // अपने Apps Script का नया URL यहां डालो 👇
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwZ7ma5ExXXrThXD0jSXBB5GxVMy_cNVqTyFRCgr2xFI1FZU0zxqz1nQ7eUNu_HlCpI/exec";
+
     const form = document.getElementById("policyForm");
     const recommendBtn = document.getElementById("recommendBtn");
 
@@ -246,12 +274,15 @@
         mobile: document.getElementById("mobile").value,
         income: document.getElementById("income").value,
         purpose: document.getElementById("purpose").value,
-        refName: document.getElementById("ReferrerName").value,
-        refMobile: document.getElementById("ReferrerMobile").value,
+        refName: document.getElementById("refName").value,
+        refMobile: document.getElementById("refMobile").value,
         type: "policy"
       };
       fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
-        .then(res => {alert("Thank you! We will contact you soon."); form.reset();})
+        .then(res => {
+          alert("Thank you! We will contact you soon.");
+          form.reset();
+        })
         .catch(err => alert("Something went wrong."));
     });
 
@@ -263,16 +294,20 @@
         mobile: document.getElementById("mobile").value,
         income: document.getElementById("income").value,
         purpose: document.getElementById("purpose").value,
-        refName: document.getElementById("ReferrerName").value,
-        refMobile: document.getElementById("ReferrerMobile").value,
+        refName: document.getElementById("refName").value,
+        refMobile: document.getElementById("refMobile").value,
         type: "recommend"
       };
       fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
-        .then(res => {alert("Referral submitted successfully!"); form.reset();})
+        .then(res => {
+          alert("Referral submitted successfully!");
+          form.reset();
+        })
         .catch(err => alert("Something went wrong."));
     });
   </script>
 </body>
 </html>
+
 
 
