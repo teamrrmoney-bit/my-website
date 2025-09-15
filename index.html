@@ -234,7 +234,7 @@
   </footer>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/YOUR-DEPLOYMENT-ID/exec"; // यहाँ अपना Apps Script URL डालें
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwZ7ma5ExXXrThXD0jSXBB5GxVMy_cNVqTyFRCgr2xFI1FZU0zxqz1nQ7eUNu_HlCpI/exec"; // यहाँ अपना Apps Script URL डालें
     const form = document.getElementById("policyForm");
     const recommendBtn = document.getElementById("recommendBtn");
 
@@ -246,8 +246,8 @@
         mobile: document.getElementById("mobile").value,
         income: document.getElementById("income").value,
         purpose: document.getElementById("purpose").value,
-        refName: document.getElementById("refName").value,
-        refMobile: document.getElementById("refMobile").value,
+        refName: document.getElementById("ReferrerName").value,
+        refMobile: document.getElementById("ReferrerMobile").value,
         type: "policy"
       };
       fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
@@ -263,8 +263,8 @@
         mobile: document.getElementById("mobile").value,
         income: document.getElementById("income").value,
         purpose: document.getElementById("purpose").value,
-        refName: document.getElementById("refName").value,
-        refMobile: document.getElementById("refMobile").value,
+        refName: document.getElementById("ReferrerName").value,
+        refMobile: document.getElementById("ReferrerMobile").value,
         type: "recommend"
       };
       fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
@@ -274,4 +274,5 @@
   </script>
 </body>
 </html>
+
 
