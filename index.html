@@ -265,84 +265,87 @@
     © 2025 RRMoney. सभी अधिकार सुरक्षित。
   </footer>
 
-  <script>
-    // ---------- यहाँ अपना Apps Script Web App URL डालें ("/exec" वाला) ----------
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzYA3X7jEhm0pcsORyFjXDMAWcC83_vkFXH8WGOTwJt9p0ObkiFSoqf8H5Xmga-023c/exec";
+ <script>
+  // अपने वही /exec URL को यहाँ रखें (आपका पहले वाला URL ठीक है)
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzYA3X7jEhm0pcsORyFjXDMAWcC83_vkFXH8WGOTwJt9p0ObkiFSoqf8H5Xmga-023c/exec";
 
-    const form = document.getElementById("policyForm");
-    const recommendBtn = document.getElementById("recommendBtn");
+  const form = document.getElementById("policyForm");
+  const recommendBtn = document.getElementById("recommendBtn");
 
-    // helper: build payload keys that Apps Script expects:
-    function buildPayload(type) {
-      return {
-        name: document.getElementById("name").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        mobile: document.getElementById("mobile").value.trim(),
-        income: document.getElementById("income").value.trim(),
-        purpose: document.getElementById("purpose").value.trim(),
-        referrerName: document.getElementById("refName").value.trim(),
-        referrerMobile: document.getElementById("refMobile").value.trim(),
-        type: type
-      };
+  // Null-safe value getter
+  function getValue(id) {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : "";
+  }
+
+  // payload builder (console में भी दिखेगा — debug के लिए)
+  function buildPayload(type) {
+    const payload = {
+      name: getValue("name"),
+      email: getValue("email"),
+      mobile: getValue("mobile"),
+      income: getValue("income"),
+      purpose: getValue("purpose"),
+      referrerName: getValue("refName"),
+      referrerMobile: getValue("refMobile"),
+      type: type
+    };
+    console.log("Form payload:", payload);
+    return payload;
+  }
+
+  // Send as application/x-www-form-urlencoded to avoid preflight (CORS) issues
+  function postPayload(payload, successMsg) {
+    const params = new URLSearchParams(payload);
+
+    fetch(scriptURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+      body: params.toString()
+    })
+    .then(response => {
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      return response.text();
+    })
+    .then(text => {
+      console.log("Server response:", text);
+      alert(successMsg);
+      form.reset();
+    })
+    .catch(err => {
+      console.error("Send failed:", err);
+      alert("कुछ गड़बड़ हुई — कृपया बाद में पुनः प्रयास करें।");
+    });
+  }
+
+  // Submit handler
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const payload = buildPayload("policy");
+
+    if (!payload.name || !payload.email || !payload.mobile) {
+      alert("कृपया नाम, ईमेल और मोबाइल भरें।");
+      return;
     }
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const payload = buildPayload("policy");
+    postPayload(payload, "धन्यवाद! आपकी जानकारी सफलतापूर्वक जमा हो गई।");
+  });
 
-      // Basic front-end validation (mobile length example)
-      if (!payload.name || !payload.email || !payload.mobile) {
-        alert("कृपया नाम, ईमेल और मोबाइल भरें।");
-        return;
-      }
+  // Recommend button handler
+  recommendBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    const payload = buildPayload("recommend");
 
-      fetch(scriptURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      })
-      .then(response => {
-        if (!response.ok) throw new Error("Network response not ok");
-        return response.text();
-      })
-      .then(() => {
-        alert("धन्यवाद! आपकी जानकारी सफलतापूर्वक जमा हो गई।");
-        form.reset();
-      })
-      .catch(err => {
-        console.error(err);
-        alert("कुछ गड़बड़ हुई — कृपया बाद में पुनः प्रयास करें।");
-      });
-    });
+    if (!payload.name || !payload.email || !payload.mobile) {
+      alert("कृपया अपना नाम, ईमेल और मोबाइल भरें (रैफरल के लिए)।");
+      return;
+    }
 
-    recommendBtn.addEventListener("click", function(e) {
-      e.preventDefault();
-      const payload = buildPayload("recommend");
+    postPayload(payload, "Referral जानकारी सफलतापूर्वक भेज दी गई।");
+  });
+</script>
 
-      if (!payload.name || !payload.email || !payload.mobile) {
-        alert("कृपया अपना नाम, ईमेल और मोबाइल भरें (रैफरल के लिए)।");
-        return;
-      }
-
-      fetch(scriptURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      })
-      .then(response => {
-        if (!response.ok) throw new Error("Network response not ok");
-        return response.text();
-      })
-      .then(() => {
-        alert("Referral जानकारी सफलतापूर्वक भेज दी गई।");
-        form.reset();
-      })
-      .catch(err => {
-        console.error(err);
-        alert("कुछ गड़बड़ हुई — कृपया बाद में पुनः प्रयास करें।");
-      });
-    });
-  </script>
 </body>
 </html>
+
 
