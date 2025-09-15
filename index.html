@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RRmoney - LIC Policy</title>
 
   <!-- Open Graph Meta Tags -->
@@ -24,6 +24,7 @@
       color: #333;
       scroll-behavior: smooth;
     }
+
     header {
       background: linear-gradient(90deg, #004aad, #1e3c72);
       color: white;
@@ -34,163 +35,135 @@
       top: 0;
       z-index: 100;
     }
+
     header img {
       height: 60px;
-      margin-bottom: 10px;
+      vertical-align: middle;
     }
-    header h1 { font-size: 28px; letter-spacing: 1px; }
+
+    header h1 {
+      display:inline-block;
+      margin-left:12px;
+      font-size: 22px;
+      vertical-align: middle;
+      letter-spacing: 1px;
+    }
 
     .flash-text {
       background: #ffeb3b;
       color: #d32f2f;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 18px;
       padding: 12px;
       margin: 15px 20px;
       border-radius: 10px;
       animation: flash 1.2s infinite;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       line-height: 1.4;
+      text-align:center;
     }
+
     @keyframes flash {
       0%, 100% {opacity: 1;}
       50% {opacity: 0.3;}
     }
 
     .content {
-      max-width: 900px;
-      margin: 40px auto;
+      max-width: 980px;
+      margin: 30px auto;
       background: white;
       padding: 30px 25px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
-    .content:hover { transform: translateY(-5px); }
+
     .content h2 {
       color: #004aad;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .content p {
-      line-height: 1.7;
-      font-size: 16px;
-      margin-bottom: 30px;
+      margin-bottom: 18px;
       text-align: center;
     }
 
     .cards {
       display: flex;
+      gap: 16px;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 22px;
     }
+
     .card {
-      flex: 1 1 calc(33% - 20px);
-      background: linear-gradient(to right, #ffffff, #e3f2fd);
-      border-radius: 15px;
-      padding: 20px;
+      flex: 1 1 calc(33% - 16px);
+      min-width: 230px;
+      background: linear-gradient(180deg,#ffffff,#eaf4ff);
+      border-radius: 12px;
+      padding: 18px;
       text-align: center;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
     }
-    .card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-    }
-    .card i { font-size: 40px; color: #004aad; margin-bottom: 15px; }
-    .card h4 { margin-bottom: 10px; color: #004aad; }
-    .card p { font-size: 14px; color: #555; line-height: 1.5; }
+
+    .card i { font-size: 36px; color:#004aad; margin-bottom:10px; }
+    .card h4 { color:#004aad; margin-bottom:8px; }
+    .card p { color:#555; font-size:14px; line-height:1.5; }
 
     .sovereign {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      margin-bottom: 40px;
-      background: #fff9c4;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      flex-wrap: wrap;
+      display:flex; gap:20px; align-items:center; margin:24px 0;
+      background:#fff9c4; padding:18px; border-radius:12px; box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+      flex-wrap:wrap;
     }
-    .sovereign img {
-      max-width: 150px;
-      border-radius: 10px;
-      flex-shrink: 0;
-    }
-    .sovereign-text { flex: 1; }
-    .sovereign-text h3 { color: #f57f17; margin-bottom: 10px; }
-    .sovereign-text p { font-size: 16px; line-height: 1.6; color: #555; }
+    .sovereign img { max-width:140px; border-radius:8px; flex-shrink:0; }
+    .sovereign-text h3 { color:#f57f17; margin-bottom:8px; }
+    .sovereign-text p { color:#555; line-height:1.6; }
 
-    .form-container { margin-top: 20px; text-align: left; }
-    .form-container input,
-    .form-container textarea {
+    /* Form styles */
+    .form-container { margin-top: 10px; text-align: left; }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .form-grid .full { grid-column: 1 / -1; }
+    .form-container input, .form-container textarea {
       width: 100%;
-      padding: 14px 15px;
-      margin: 10px 0;
-      border: 1.5px solid #ccc;
-      border-radius: 12px;
-      font-size: 16px;
-      transition: border 0.3s, box-shadow 0.3s;
+      padding: 12px 14px;
+      border: 1.5px solid #d0d7de;
+      border-radius: 10px;
+      font-size: 15px;
+      transition: border-color .25s, box-shadow .25s;
     }
-    .form-container input:focus,
-    .form-container textarea:focus {
-      border-color: #004aad;
-      box-shadow: 0 0 12px rgba(0,74,173,0.2);
-      outline: none;
+    .form-container textarea { min-height: 96px; resize: vertical; }
+    .form-container input:focus, .form-container textarea:focus {
+      border-color:#004aad; box-shadow: 0 0 10px rgba(0,74,173,0.12); outline:none;
     }
-    .btn {
-      background: linear-gradient(90deg, #28a745, #218838);
-      color: white;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 12px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      width: 100%;
+
+    .note {
+      font-size: 14px; color:#444; margin:10px 0 6px; text-align: left;
     }
-    .btn:hover {
-      background: linear-gradient(90deg, #218838, #19692c);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    }
+
+    .btn-row { display:flex; gap:12px; margin-top:8px; }
+    .btn { flex:1; background: linear-gradient(90deg,#28a745,#218838); color:#fff; border:none; padding:12px 16px; border-radius:10px; font-size:16px; cursor:pointer; }
+    .btn.recommend { background: linear-gradient(90deg,#007bff,#0056b3); }
+    .btn:active { transform: translateY(1px); }
 
     .disclaimer {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #555;
-      background: #f0f0f0;
-      padding: 15px;
-      border-radius: 12px;
-      line-height: 1.6;
-      text-align: justify;
+      margin-top: 20px; font-size: 14px; color: #555; background: #f6f6f6; padding:14px; border-radius:10px; text-align:justify;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #555;
-      font-size: 14px;
-    }
+    footer { text-align:center; padding:16px; color:#666; font-size:14px; margin-top:18px; }
 
-    @media (max-width: 900px) {
-      .cards { flex-direction: column; }
-      .card { flex: 1 1 100%; }
-      .sovereign { flex-direction: column; text-align: center; }
-      .sovereign img { margin-bottom: 15px; }
+    @media (max-width:900px) {
+      .card { flex:1 1 100%; }
+      .form-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <body>
   <header>
     <img src="rrmoney-logo.png" alt="RRmoney Logo" style="height:60px;">
+    <h1 style="display:none">RRmoney</h1>
   </header>
 
   <div class="flash-text">
-    LIC पोलिसीज 3% से 5% सस्ते प्रीमियम पर लेने के लिए कृपया नीचे दिये गये फार्म को भरकर भेजें
+    LIC पॉलिसीज 3% से 5% सस्ते प्रीमियम पर लेने के लिए — नीचे फार्म भरें
   </div>
 
   <div class="content">
@@ -202,26 +175,33 @@
         <h4>सुरक्षित भविष्य</h4>
         <p>आपके और आपके परिवार के लिए सुनिश्चित सुरक्षा और वित्तीय स्थिरता।</p>
       </div>
+
       <div class="card">
         <i class="fas fa-hand-holding-usd"></i>
         <h4>निश्चित रिटर्न</h4>
         <p>आपकी जमा राशि पर गारंटीड रिटर्न और लंबी अवधि के लाभ।</p>
       </div>
+
       <div class="card">
         <i class="fas fa-users"></i>
         <h4>परिवार सुरक्षा</h4>
         <p>आपके परिवार को अचानक आपात स्थिति में आर्थिक सुरक्षा।</p>
       </div>
+    </div>
+
+    <div class="cards">
       <div class="card">
         <i class="fas fa-file-alt"></i>
         <h4>सरकारी समर्थित</h4>
         <p>सरकार द्वारा समर्थित LIC पॉलिसी विश्वसनीय और भरोसेमंद।</p>
       </div>
+
       <div class="card">
         <i class="fas fa-percent"></i>
         <h4>सस्ता प्रीमियम</h4>
-        <p>3% से 5% तक कम प्रीमियम में पॉलिसी उपलब्ध (केवल RRmoney पर)</p>
+        <p>2% (या 3%-5% वैरिएशन) तक कम प्रीमियम विकल्प — विशेष ऑफर RRmoney पर।</p>
       </div>
+
       <div class="card">
         <i class="fas fa-chart-line"></i>
         <h4>लंबी अवधि लाभ</h4>
@@ -233,81 +213,135 @@
       <img src="sovereign-logo.png" alt="Sovereign Guarantee">
       <div class="sovereign-text">
         <h3>सोवरेन गारंटी</h3>
-        <p>LIC पॉलिसी को भारत सरकार की सोवरेन गारंटी प्राप्त है। …</p>
+        <p>LIC पॉलिसी को भारत सरकार की सोवरेन गारंटी प्राप्त है। इसका मतलब है कि आपकी जमा राशि और लाभ सुरक्षित हैं और सरकार द्वारा समर्थित हैं।</p>
       </div>
     </div>
 
-    <!-- नया फॉर्म -->
-    <h3>पॉलिसी लेने के लिए विवरण भरें</h3>
+    <!-- नया फ़ॉर्म (यहाँ पूरा फॉर्म है) -->
+    <h3>पॉलिसी लेने के लिए विवरण भरें / Fill your details to get more info</h3>
+
     <div class="form-container">
-      <form id="policyForm">
-        <input type="text" id="name" placeholder="आपका नाम" required>
-        <input type="email" id="email" placeholder="आपका ईमेल" required>
-        <input type="text" id="mobile" placeholder="आपका मोबाइल नंबर" required>
-        <input type="text" id="income" placeholder="आपकी इनकम" required>
-        <textarea id="purpose" placeholder="बीमा लेने का उद्देश्य" required></textarea>
+      <form id="policyForm" autocomplete="on">
+        <div class="form-grid">
+          <div>
+            <input type="text" id="name" placeholder="आपका नाम / Your Name" required>
+          </div>
+          <div>
+            <input type="email" id="email" placeholder="आपका ईमेल / Your Email" required>
+          </div>
+          <div>
+            <input type="text" id="mobile" placeholder="आपका मोबाइल / Your Mobile" required>
+          </div>
+          <div>
+            <input type="text" id="income" placeholder="आपकी इनकम / Your Income" required>
+          </div>
+          <div class="full">
+            <textarea id="purpose" placeholder="बीमा लेने का उद्देश्य / Purpose of Insurance" required></textarea>
+          </div>
 
-        <!-- वैकल्पिक रेफ़रल -->
-        <input type="text" id="refName" placeholder="मित्र का नाम (Optional)">
-        <input type="text" id="refMobile" placeholder="मित्र का मोबाइल (Optional)">
+          <div>
+            <input type="text" id="refName" placeholder="रिफ़र करने वाले का नाम (Optional) / Referrer Name">
+          </div>
+          <div>
+            <input type="text" id="refMobile" placeholder="रिफ़र करने वाले का मोबाइल (Optional) / Referrer Mobile">
+          </div>
+        </div>
 
-        <button type="submit" class="btn">पॉलिसी लेने के लिए क्लिक करें</button>
-        <button type="button" id="recommendBtn" class="btn" style="margin-top:10px;background:linear-gradient(90deg,#007bff,#0056b3)">Recommend & Earn</button>
+        <div class="note">Recommend & Earn: यदि आपका रेफर किया गया व्यक्ति पॉलिसी खरीदता है तो हर रेफरल पर ₹200 प्राप्त करें।</div>
+
+        <div class="btn-row" style="margin-top:8px;">
+          <button type="submit" class="btn">पॉलिसी लेने के लिए क्लिक करें / Submit</button>
+          <button type="button" id="recommendBtn" class="btn recommend">Recommend & Earn</button>
+        </div>
       </form>
+    </div>
+
+    <div class="disclaimer">
+      RRmoney, LIC द्वारा निर्धारित किये गये प्रीमियम व इसके भुगतान की विधि में कोई बदलाव नहीं करता है। पॉलिसी धारक का पैसा सीधे LIC के पास जाता है जिसकी सूचना पॉलिसी धारक को रहती है। RRmoney, LIC द्वारा प्रदत्त तरीके से ही पॉलिसी धारक को सस्ता प्रीमियम दिलाने में मदद करता है। हमारी पॉलिसी और ऑफर LIC के नियमों के अधीन हैं।
     </div>
   </div>
 
-  <footer>© 2025 RRMoney. सभी अधिकार सुरक्षित।</footer>
+  <footer>
+    © 2025 RRMoney. सभी अधिकार सुरक्षित।
+  </footer>
 
   <script>
-    // अपने Apps Script का नया URL यहां डालो 👇
+    // ---------- यहाँ अपना Apps Script Web App URL डालें ("/exec" वाला) ----------
     const scriptURL = "https://script.google.com/macros/s/AKfycbwZ7ma5ExXXrThXD0jSXBB5GxVMy_cNVqTyFRCgr2xFI1FZU0zxqz1nQ7eUNu_HlCpI/exec";
 
     const form = document.getElementById("policyForm");
     const recommendBtn = document.getElementById("recommendBtn");
 
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        mobile: document.getElementById("mobile").value,
-        income: document.getElementById("income").value,
-        purpose: document.getElementById("purpose").value,
-        refName: document.getElementById("refName").value,
-        refMobile: document.getElementById("refMobile").value,
-        type: "policy"
+    // helper: build payload keys that Apps Script expects:
+    function buildPayload(type) {
+      return {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        mobile: document.getElementById("mobile").value.trim(),
+        income: document.getElementById("income").value.trim(),
+        purpose: document.getElementById("purpose").value.trim(),
+        referrerName: document.getElementById("refName").value.trim(),
+        referrerMobile: document.getElementById("refMobile").value.trim(),
+        type: type
       };
-      fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
-        .then(res => {
-          alert("Thank you! We will contact you soon.");
-          form.reset();
-        })
-        .catch(err => alert("Something went wrong."));
+    }
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const payload = buildPayload("policy");
+
+      // Basic front-end validation (mobile length example)
+      if (!payload.name || !payload.email || !payload.mobile) {
+        alert("कृपया नाम, ईमेल और मोबाइल भरें।");
+        return;
+      }
+
+      fetch(scriptURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (!response.ok) throw new Error("Network response not ok");
+        return response.text();
+      })
+      .then(() => {
+        alert("धन्यवाद! आपकी जानकारी सफलतापूर्वक जमा हो गई।");
+        form.reset();
+      })
+      .catch(err => {
+        console.error(err);
+        alert("कुछ गड़बड़ हुई — कृपया बाद में पुनः प्रयास करें।");
+      });
     });
 
-    recommendBtn.addEventListener("click", e => {
+    recommendBtn.addEventListener("click", function(e) {
       e.preventDefault();
-      const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        mobile: document.getElementById("mobile").value,
-        income: document.getElementById("income").value,
-        purpose: document.getElementById("purpose").value,
-        refName: document.getElementById("refName").value,
-        refMobile: document.getElementById("refMobile").value,
-        type: "recommend"
-      };
-      fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
-        .then(res => {
-          alert("Referral submitted successfully!");
-          form.reset();
-        })
-        .catch(err => alert("Something went wrong."));
+      const payload = buildPayload("recommend");
+
+      if (!payload.name || !payload.email || !payload.mobile) {
+        alert("कृपया अपना नाम, ईमेल और मोबाइल भरें (रैफरल के लिए)।");
+        return;
+      }
+
+      fetch(scriptURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (!response.ok) throw new Error("Network response not ok");
+        return response.text();
+      })
+      .then(() => {
+        alert("Referral जानकारी सफलतापूर्वक भेज दी गई।");
+        form.reset();
+      })
+      .catch(err => {
+        console.error(err);
+        alert("कुछ गड़बड़ हुई — कृपया बाद में पुनः प्रयास करें।");
+      });
     });
   </script>
 </body>
 </html>
-
-
-
