@@ -1,24 +1,61 @@
-<!-- बाकी सब हेडर, कार्ड्स, डिस्क्लेमर वैसा ही रहेगा -->
-<h3>Fill your details to get more info</h3>
-<div class="form-container">
-  <form id="policyForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <input type="text" id="mobile" placeholder="Your Mobile Number" required>
-    <input type="text" id="income" placeholder="Your Income" required>
-    <textarea id="purpose" placeholder="Purpose of Insurance" required></textarea>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team RRmoney</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin:0; padding:0;}
+    header {background:#007bff; color:#fff; padding:15px;}
+    header h1 {margin:0; font-size:24px;}
+    .container {padding:20px;}
+    .card {background:#f8f9fa; padding:20px; margin-bottom:15px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,.1);}
+    .form-container {background:#f8f9fa; padding:20px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,.1);}
+    form input, form textarea {width:100%; padding:10px; margin:8px 0; box-sizing:border-box;}
+    .btn {background:#007bff; color:#fff; padding:10px 15px; border:none; border-radius:4px; cursor:pointer;}
+    .btn:hover {background:#0056b3;}
+  </style>
+</head>
+<body>
 
-    <!-- New referral fields -->
-    <input type="text" id="refName" placeholder="Friend's Name (Optional)">
-    <input type="text" id="refMobile" placeholder="Friend's Mobile (Optional)">
+<header>
+  <h1>Team RRmoney</h1>
+</header>
 
-    <button type="submit" class="btn">Submit</button>
-    <button type="button" id="recommendBtn" class="btn" style="margin-top:10px;background:linear-gradient(90deg,#007bff,#0056b3)">Recommend & Earn</button>
-  </form>
+<div class="container">
+  <!-- आपका पुराना कंटेंट/कार्ड्स -->
+  <div class="card">
+    <h2>LIC Insurance Plans</h2>
+    <p>हमारे साथ बेहतरीन बीमा योजनाएं पाएं…</p>
+  </div>
+
+  <!-- नया फॉर्म -->
+  <h3>Fill your details to get more info</h3>
+  <div class="form-container">
+    <form id="policyForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <input type="text" id="mobile" placeholder="Your Mobile Number" required>
+      <input type="text" id="income" placeholder="Your Income" required>
+      <textarea id="purpose" placeholder="Purpose of Insurance" required></textarea>
+
+      <input type="text" id="refName" placeholder="Friend's Name (Optional)">
+      <input type="text" id="refMobile" placeholder="Friend's Mobile (Optional)">
+
+      <button type="submit" class="btn">Submit</button>
+      <button type="button" id="recommendBtn" class="btn" style="margin-top:10px;background:linear-gradient(90deg,#007bff,#0056b3)">Recommend & Earn</button>
+    </form>
+  </div>
+
+  <!-- आप चाहे तो यहाँ और पुराने कार्ड/सेक्शन डाल सकते हैं -->
+
+  <p style="margin-top:20px;font-size:14px;color:#555;">
+    Disclaimer: Insurance is subject to terms and conditions…
+  </p>
 </div>
 
 <script>
-  // अपने Apps Script का नया URL यहां डालो 👇
+  // अपने Apps Script का URL यहां डालें
   const scriptURL = "https://script.google.com/macros/s/AKfycbwZ7ma5ExXXrThXD0jSXBB5GxVMy_cNVqTyFRCgr2xFI1FZU0zxqz1nQ7eUNu_HlCpI/exec";
 
   const form = document.getElementById("policyForm");
@@ -33,9 +70,9 @@
       mobile: document.getElementById("mobile").value,
       income: document.getElementById("income").value,
       purpose: document.getElementById("purpose").value,
-      refName: document.getElementById("referrerName").value,
-      refMobile: document.getElementById("referrerMobile").value,
-      type: "policy" // Apps Script में टाइप से पहचान सकते हो
+      referrerName: document.getElementById("refName").value,
+      referrerMobile: document.getElementById("refMobile").value,
+      type: "policy"
     };
 
     fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
@@ -55,8 +92,8 @@
       mobile: document.getElementById("mobile").value,
       income: document.getElementById("income").value,
       purpose: document.getElementById("purpose").value,
-      refName: document.getElementById("referrerName").value,
-      refMobile: document.getElementById("referrerMobile").value,
+      referrerName: document.getElementById("refName").value,
+      referrerMobile: document.getElementById("refMobile").value,
       type: "recommend"
     };
 
@@ -69,3 +106,5 @@
   });
 </script>
 
+</body>
+</html>
