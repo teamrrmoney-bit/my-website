@@ -1,110 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Team RRmoney</title>
+  <title>RRmoney - LIC Policy</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="RRmoney - LIC Policy">
+  <meta property="og:description" content="LIC Insurance – Monthly Mode पर 2% बचत। अभी जानें।">
+  <meta property="og:image" content="https://teamrrmoney-bit.github.io/my-website/rrmoney-logo.png">
+  <meta property="og:url" content="https://teamrrmoney-bit.github.io/my-website/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    body {font-family: Arial, sans-serif; margin:0; padding:0;}
-    header {background:#007bff; color:#fff; padding:15px;}
-    header h1 {margin:0; font-size:24px;}
-    .container {padding:20px;}
-    .card {background:#f8f9fa; padding:20px; margin-bottom:15px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,.1);}
-    .form-container {background:#f8f9fa; padding:20px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,.1);}
-    form input, form textarea {width:100%; padding:10px; margin:8px 0; box-sizing:border-box;}
-    .btn {background:#007bff; color:#fff; padding:10px 15px; border:none; border-radius:4px; cursor:pointer;}
-    .btn:hover {background:#0056b3;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: linear-gradient(90deg, #004aad, #1e3c72);
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header img {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+    header h1 { font-size: 28px; letter-spacing: 1px; }
+
+    .flash-text {
+      background: #ffeb3b;
+      color: #d32f2f;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 12px;
+      margin: 15px 20px;
+      border-radius: 10px;
+      animation: flash 1.2s infinite;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      line-height: 1.4;
+    }
+    @keyframes flash {
+      0%, 100% {opacity: 1;}
+      50% {opacity: 0.3;}
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .content:hover { transform: translateY(-5px); }
+    .content h2 {
+      color: #004aad;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .content p {
+      line-height: 1.7;
+      font-size: 16px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .card {
+      flex: 1 1 calc(33% - 20px);
+      background: linear-gradient(to right, #ffffff, #e3f2fd);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    .card i { font-size: 40px; color: #004aad; margin-bottom: 15px; }
+    .card h4 { margin-bottom: 10px; color: #004aad; }
+    .card p { font-size: 14px; color: #555; line-height: 1.5; }
+
+    .sovereign {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 40px;
+      background: #fff9c4;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+    }
+    .sovereign img {
+      max-width: 150px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .sovereign-text { flex: 1; }
+    .sovereign-text h3 { color: #f57f17; margin-bottom: 10px; }
+    .sovereign-text p { font-size: 16px; line-height: 1.6; color: #555; }
+
+    .form-container { margin-top: 20px; text-align: left; }
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 14px 15px;
+      margin: 10px 0;
+      border: 1.5px solid #ccc;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    .form-container input:focus,
+    .form-container textarea:focus {
+      border-color: #004aad;
+      box-shadow: 0 0 12px rgba(0,74,173,0.2);
+      outline: none;
+    }
+    .btn {
+      background: linear-gradient(90deg, #28a745, #218838);
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #218838, #19692c);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .disclaimer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 12px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .cards { flex-direction: column; }
+      .card { flex: 1 1 100%; }
+      .sovereign { flex-direction: column; text-align: center; }
+      .sovereign img { margin-bottom: 15px; }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <img src="rrmoney-logo.png" alt="RRmoney Logo" style="height:60px;">
+  </header>
 
-<header>
-  <h1>Team RRmoney</h1>
-</header>
-
-<div class="container">
-  <!-- आपका पुराना कंटेंट/कार्ड्स -->
-  <div class="card">
-    <h2>LIC Insurance Plans</h2>
-    <p>हमारे साथ बेहतरीन बीमा योजनाएं पाएं…</p>
+  <div class="flash-text">
+    LIC पोलिसीज 3% से 5% सस्ते प्रीमियम पर लेने के लिए कृपया नीचे दिये गये फार्म को भरकर भेजें
   </div>
 
-  <!-- नया फॉर्म -->
-  <h3>Fill your details to get more info</h3>
-  <div class="form-container">
-    <form id="policyForm">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <input type="text" id="mobile" placeholder="Your Mobile Number" required>
-      <input type="text" id="income" placeholder="Your Income" required>
-      <textarea id="purpose" placeholder="Purpose of Insurance" required></textarea>
+  <div class="content">
+    <h2>LIC पॉलिसी के फायदे</h2>
 
-      <input type="text" id="refName" placeholder="Friend's Name (Optional)">
-      <input type="text" id="refMobile" placeholder="Friend's Mobile (Optional)">
+    <div class="cards">
+      <!-- वही कार्ड्स -->
+      …
+    </div>
 
-      <button type="submit" class="btn">Submit</button>
-      <button type="button" id="recommendBtn" class="btn" style="margin-top:10px;background:linear-gradient(90deg,#007bff,#0056b3)">Recommend & Earn</button>
-    </form>
+    <div class="sovereign">
+      <img src="sovereign-logo.png" alt="Sovereign Guarantee">
+      <div class="sovereign-text">
+        <h3>सोवरेन गारंटी</h3>
+        <p>LIC पॉलिसी को भारत सरकार की सोवरेन गारंटी प्राप्त है…</p>
+      </div>
+    </div>
+
+    <!-- नया फॉर्म -->
+    <h3>Fill your details to get more info</h3>
+    <div class="form-container">
+      <form id="policyForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="text" id="mobile" placeholder="Your Mobile" required>
+        <input type="text" id="income" placeholder="Your Income" required>
+        <textarea id="purpose" placeholder="Purpose of Insurance" required></textarea>
+        <input type="text" id="refName" placeholder="Friend's Name (Optional)">
+        <input type="text" id="refMobile" placeholder="Friend's Mobile (Optional)">
+        <button type="submit" class="btn">Submit</button>
+        <button type="button" id="recommendBtn" class="btn" style="margin-top:10px;background:linear-gradient(90deg,#007bff,#0056b3)">Recommend & Earn</button>
+      </form>
+    </div>
+
+    <div class="disclaimer">
+      RRmoney, LIC द्वारा निर्धारित किये गये प्रीमियम व इसके भुगतान की विधि में कोई बदलाव नहीं करता है…
+    </div>
   </div>
 
-  <!-- आप चाहे तो यहाँ और पुराने कार्ड/सेक्शन डाल सकते हैं -->
+  <footer>
+    © 2025 RRMoney. सभी अधिकार सुरक्षित।
+  </footer>
 
-  <p style="margin-top:20px;font-size:14px;color:#555;">
-    Disclaimer: Insurance is subject to terms and conditions…
-  </p>
-</div>
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/YOUR-DEPLOYMENT-ID/exec"; // यहाँ अपना Apps Script URL डालें
+    const form = document.getElementById("policyForm");
+    const recommendBtn = document.getElementById("recommendBtn");
 
-<script>
-  // अपने Apps Script का URL यहां डालें
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwZ7ma5ExXXrThXD0jSXBB5GxVMy_cNVqTyFRCgr2xFI1FZU0zxqz1nQ7eUNu_HlCpI/exec";
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        mobile: document.getElementById("mobile").value,
+        income: document.getElementById("income").value,
+        purpose: document.getElementById("purpose").value,
+        refName: document.getElementById("refName").value,
+        refMobile: document.getElementById("refMobile").value,
+        type: "policy"
+      };
+      fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
+        .then(res => {alert("Thank you! We will contact you soon."); form.reset();})
+        .catch(err => alert("Something went wrong."));
+    });
 
-  const form = document.getElementById("policyForm");
-  const recommendBtn = document.getElementById("recommendBtn");
-
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-
-    const data = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      mobile: document.getElementById("mobile").value,
-      income: document.getElementById("income").value,
-      purpose: document.getElementById("purpose").value,
-      referrerName: document.getElementById("refName").value,
-      referrerMobile: document.getElementById("refMobile").value,
-      type: "policy"
-    };
-
-    fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
-      .then(res => {
-        alert("Thank you! We will contact you soon.");
-        form.reset();
-      })
-      .catch(err => alert("Something went wrong."));
-  });
-
-  recommendBtn.addEventListener("click", e => {
-    e.preventDefault();
-
-    const data = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      mobile: document.getElementById("mobile").value,
-      income: document.getElementById("income").value,
-      purpose: document.getElementById("purpose").value,
-      referrerName: document.getElementById("refName").value,
-      referrerMobile: document.getElementById("refMobile").value,
-      type: "recommend"
-    };
-
-    fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
-      .then(res => {
-        alert("Referral submitted successfully!");
-        form.reset();
-      })
-      .catch(err => alert("Something went wrong."));
-  });
-</script>
-
+    recommendBtn.addEventListener("click", e => {
+      e.preventDefault();
+      const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        mobile: document.getElementById("mobile").value,
+        income: document.getElementById("income").value,
+        purpose: document.getElementById("purpose").value,
+        refName: document.getElementById("refName").value,
+        refMobile: document.getElementById("refMobile").value,
+        type: "recommend"
+      };
+      fetch(scriptURL, {method:'POST', body:JSON.stringify(data)})
+        .then(res => {alert("Referral submitted successfully!"); form.reset();})
+        .catch(err => alert("Something went wrong."));
+    });
+  </script>
 </body>
 </html>
