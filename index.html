@@ -224,7 +224,7 @@
       <form id="policyForm" autocomplete="on">
         <div class="form-grid">
           <div>
-            <input type="text" id="name" placeholder="आपका नाम / Your Name" required>
+                     <input type="text" id="name" placeholder="आपका नाम / Your Name" required>
           </div>
           <div>
             <input type="email" id="email" placeholder="आपका ईमेल / Your Email" required>
@@ -238,7 +238,15 @@
           <div class="full">
             <textarea id="purpose" placeholder="बीमा लेने का उद्देश्य / Purpose of Insurance" required></textarea>
           </div>
+        </div>
 
+        <!-- हरा बटन (Submit) — यह पाँच फ़ील्ड्स के ठीक बाद आता है -->
+        <div class="btn-row" style="margin-top:8px;">
+          <button type="submit" class="btn">पॉलिसी लेने के लिए क्लिक करें / Submit</button>
+        </div>
+
+        <!-- रेफरर के फ़ील्ड्स — अब हरे बटन के नीचे हैं -->
+        <div class="form-grid" style="margin-top:12px;">
           <div>
             <input type="text" id="refName" placeholder="रिफ़र करने वाले का नाम (Optional) / Referrer Name">
           </div>
@@ -249,8 +257,8 @@
 
         <div class="note">Recommend & Earn: यदि आपका रेफर किया गया व्यक्ति पॉलिसी खरीदता है तो हर रेफरल पर ₹200 प्राप्त करें।</div>
 
+        <!-- नीला बटन (Recommend & Earn) — रेफरर फ़ील्ड्स के बाद -->
         <div class="btn-row" style="margin-top:8px;">
-          <button type="submit" class="btn">पॉलिसी लेने के लिए क्लिक करें / Submit</button>
           <button type="button" id="recommendBtn" class="btn recommend">Recommend & Earn</button>
         </div>
       </form>
@@ -269,7 +277,7 @@
   // अपने वही /exec URL को यहाँ रखें (आपका पहले वाला URL ठीक है)
   const scriptURL = "https://script.google.com/macros/s/AKfycbygqy3OQeZHkcC53rtA8zRYqyIME0mSrhIhBXz-MH8_r6fkGMfrWNBHBebITGOScOjO/exec";
 
-  const form = document.getElementById("policyForm");
+   const form = document.getElementById("policyForm");
   const recommendBtn = document.getElementById("recommendBtn");
 
   // Null-safe value getter
@@ -318,7 +326,7 @@
     });
   }
 
-  // Submit handler
+  // Submit handler (जैसा पहले था)
   form.addEventListener("submit", function(e) {
     e.preventDefault();
     const payload = buildPayload("policy");
@@ -331,7 +339,7 @@
     postPayload(payload, "धन्यवाद! आपकी जानकारी सफलतापूर्वक जमा हो गई।");
   });
 
-  // Recommend button handler
+  // Recommend button handler — अब रेफ़रर नाम और मोबाइल ज़रूरी
   recommendBtn.addEventListener("click", function(e) {
     e.preventDefault();
     const payload = buildPayload("recommend");
@@ -341,13 +349,11 @@
       return;
     }
 
+    if (!payload.referrerName || !payload.referrerMobile) {
+      alert("कृपया रेफ़रर नाम और रेफ़रर मोबाइल दोनों भरें, तभी Recommend & Earn भेजा जा सकता है।");
+      return;
+    }
+
     postPayload(payload, "Referral जानकारी सफलतापूर्वक भेज दी गई।");
   });
 </script>
-
-</body>
-</html>
-
-
-
-
